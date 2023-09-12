@@ -4,4 +4,4 @@
 Papikyan Tamara
 
 
-Group 303
+Group 303 cmc msu
