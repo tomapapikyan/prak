@@ -7,10 +7,11 @@ void xor_rows(bool *a, bool*b, bool*c, int n){
 }
 
 void fill_RowSums(Matrix &RowSums, Matrix &B, int i, int k){
-
+    int n = B.c_size();
     for (int l = 1; l < pow(2, k); l++){
         int m = std::floor(log(l) / log(2));
-        xor_rows(RowSums[l - pow(2, m)], B[i + m], RowSums[l], B.size());
+        xor_rows(RowSums[(l - pow(2, m)) * n], B[(i + m)*n],
+        RowSums[l*n], n);
     }
 }
 
@@ -32,13 +33,13 @@ void mult_matrix(Matrix &A, Matrix &B, Matrix &C){
     for (int i = 0; i < n/k; i++){
         fill_RowSums(RowSums, B, i*k, k);
         for (int j = 0; j < n; j++)
-            xor_rows(C[j], RowSums[Num(A[j], i*k, k)], C[j], n);
+            xor_rows(C[j*n], RowSums[Num(A[j*n], i*k, k) * n], C[j*n], n);
     }
 
     if (n%k){
         fill_RowSums(RowSums, B, k*(n/k), n%k);
         for (int j = 0; j < n; j++)
-            xor_rows(C[j], RowSums[Num(A[j], k*(n/k), n%k)], C[j], n);
+            xor_rows(C[j*n], RowSums[Num(A[j*n], k*(n/k), n%k) * n], C[j*n], n);
     }
 }
 

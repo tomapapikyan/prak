@@ -32,6 +32,13 @@ int main(){
 
     A.generate();
     B.generate();
+
+/*
+    A.write_to(std::cout);
+    std::cout<<"\n";
+    B.write_to(std::cout);
+    std::cout<<"\n";
+*/
 /*
     generate_input(size, input);
 
@@ -49,9 +56,15 @@ int main(){
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 
 /*
+    C.write_to(std::cout);
+    std::cout<<"\n";
+    (A*B).write_to(std::cout);
+*/
+
+
     if (C == (A*B))
         std::cout<<"Correct\n";
-*/
+
 
 /*
     C.write_to(output);
