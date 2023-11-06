@@ -5,7 +5,7 @@
 #include "matrix.h"
 #include "preprocess.h"
 //#include "generate.h"
-
+//
 /*
 int open_f(std::fstream &file, const char str[]){
     file.open(str, std::ios::trunc | std::ios::in | std::ios::out);
@@ -50,6 +50,7 @@ int main(){
     A.read_from(input);
     B.read_from(input);
 */
+
     auto start = std::chrono::high_resolution_clock::now();
     mult_matrix(A, B, C);
     auto stop = std::chrono::high_resolution_clock::now();
@@ -64,7 +65,6 @@ int main(){
 
     if (C == (A*B))
         std::cout<<"Correct\n";
-
 
 /*
     C.write_to(output);

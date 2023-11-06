@@ -10,12 +10,14 @@ class Matrix{
         void write_to(std::ostream &ostr);
         int size();
         int c_size();
-        bool* operator[](int index);
+        int64_t* operator[](int index);
+//        bool* operator[](int index);
         Matrix operator*(Matrix& other);
         void generate();
         bool operator== (const Matrix& other);
     private:
-	bool* a;
+	int64_t* a;
+//        bool* a;
         int n, m;
 };
 
