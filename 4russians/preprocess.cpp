@@ -1,9 +1,9 @@
 #include <cmath>
 #include "matrix.h"
 
-int bt = 64;
+int bt = 32;
 
-void xor_rows(int64_t *c, int64_t *a, int64_t *b, int n){
+void xor_rows(int32_t *c, int32_t *a, int32_t *b, int n){
     for (int i = 0; i < n; i++){
         c[i] = (a[i] ^ b[i]);
     }
@@ -12,12 +12,12 @@ void xor_rows(int64_t *c, int64_t *a, int64_t *b, int n){
 void fill_RowSums(Matrix &RowSums, Matrix &B, int i, int k){
     int n = B.c_size();
     for (int j = 1; j < 1<<k; j++){
-        int l = std::floor(log(j) / log(2));
+        int l = log(j) / log(2);
         xor_rows(RowSums[j], RowSums[j - (1<<l)], B[i+l], n/bt);
     }
 }
 
-int Num(int64_t *row, int i, int k){
+int Num(int32_t *row, int i, int k){
     int r = 0;
     for (int j = 0; j < k; j++){
         int p = i+j;

@@ -10,13 +10,12 @@ class Matrix{
         void write_to(std::ostream &ostr);
         int size();
         int c_size();
-        int64_t* operator[](int index);
-        int64_t& operator()(int i,  int j);
-        Matrix operator*(Matrix& other);
+        int32_t* operator[](int index);
+        int32_t& operator()(int i,  int j);
         void generate();
         bool operator== (const Matrix& other);
     private:
-	int64_t* a;
+	int32_t* a;
         int n, m;
         static int byte;
 };

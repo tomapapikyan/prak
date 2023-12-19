@@ -3,12 +3,12 @@
 
 #include "matrix.h"
 
-void xor_rows(int64_t *a, int64_t *b, int64_t *c, int n);
+void xor_rows(int32_t *a, int32_t *b, int32_t *c, int n);
 
 void fill_RowSums(Matrix &RowSums, Matrix &B,
 int i, int k);
 
-int Num(int64_t *row, int i, int k);
+int Num(int32_t *row, int i, int k);
 
 void mult_matrix(Matrix &A, Matrix &B, Matrix &C);
 
