@@ -77,11 +77,7 @@ integer::i, j
         allocate (c(N, M))
         a = transpose(at)
         b = transpose(bt)
-        do i=1, N
-            do j=1, M
-                c(i, j)=0
-            end do
-        end do
+
         call mat_mul(a, b, c)
         ct = transpose(c)
         deallocate (a)
